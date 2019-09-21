@@ -9,4 +9,4 @@ Feel free to customize and improve it, I'm looking forward for your pull request
 
 ## Install
 
-You need a user script manager, https://greasyfork.org/en has more on this topic.
+You need a user script manager (tampermonkey, greasemonkey), you can install the script from [openuserjs.org/scripts/simonk/hmip-ccu3-cleanui](https://openuserjs.org/scripts/simonk/hmip-ccu3-cleanui) as well.
