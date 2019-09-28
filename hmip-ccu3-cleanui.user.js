@@ -2,7 +2,7 @@
 // @icon         https://raw.githubusercontent.com/simonkowallik/hmip-ccu3-cleanui/master/ipui.png
 // @name         hmip-ccu3-cleanui
 // @namespace    https://github.com/simonkowallik/hmip-ccu3-cleanui
-// @version      2.0
+// @version      2.1
 // @description  Material Dark Theme for Homematic IP CCU3 (version 3.47.18)
 // @author       Simon Kowallik
 // @license      ISC
@@ -60,7 +60,7 @@
   var s2 = document.createElement('style');
   s2.type = "text/css";
   s2.innerHTML = `
-* { font-family: ` + custom_font + `, Courier New ! important; color:` + color_text + `; font-size: 12px ! important; }
+* { font-family: ` + custom_font + `, Courier New ! important; color:` + color_text + `; font-size: 12px ! important; font-weight: 300 ! important; }
 html, body {
   margin:0;
   padding:0;
