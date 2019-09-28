@@ -7,6 +7,9 @@ The script didn't receive much time, so consider it a hack.. :-)
 
 Feel free to customize and improve it, I'm looking forward for your pull request.
 
+![Example](https://github.com/simonkowallik/hmip-ccu3-cleanui/raw/master/example.png)
+
+
 ## Install
 
 You need a user script manager (tampermonkey, greasemonkey), you can install the script from [openuserjs.org/scripts/simonk/hmip-ccu3-cleanui](https://openuserjs.org/scripts/simonk/hmip-ccu3-cleanui) as well.

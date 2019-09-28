@@ -2,13 +2,14 @@
 // @icon         https://raw.githubusercontent.com/simonkowallik/hmip-ccu3-cleanui/master/ipui.png
 // @name         hmip-ccu3-cleanui
 // @namespace    https://github.com/simonkowallik/hmip-ccu3-cleanui
-// @version      1.0@CCU3v3.47.18
-// @description  Material Dark for Homematic IP CCU3
+// @version      2.0
+// @description  Material Dark Theme for Homematic IP CCU3 (version 3.47.18)
 // @author       Simon Kowallik
 // @license      ISC
 // @include      */pages/index.htm?sid=@*@
 // @homepageURL  https://github.com/simonkowallik/hmip-ccu3-cleanui
 // @supportURL   https://github.com/simonkowallik/hmip-ccu3-cleanui/issues
+// @downloadURL  https://raw.githubusercontent.com/simonkowallik/hmip-ccu3-cleanui/master/hmip-ccu3-cleanui.user.js
 // @updateURL    https://raw.githubusercontent.com/simonkowallik/hmip-ccu3-cleanui/master/hmip-ccu3-cleanui.user.js
 // @grant        none
 // ==/UserScript==
@@ -33,6 +34,7 @@
   var color_border = "#d0d0d0";
   var color_content_bg = "#f0f6ff";
   var color_primary = "#2583f6"; // #c98736
+  var color_link = "#0000ff";
 */
   // dark
   var color_surface = "#1f1f1f";
@@ -41,6 +43,7 @@
   var color_border = "#616161"; // #9e9e9e
   var color_content_bg = "#2f2f2f"; // #d0d0d0
   var color_primary = "#3678c9"; // #c98736
+  var color_link = "#68b4ff";
 
   // custom font (loaded via google font apis)
   var custom_font = "Roboto Mono";
@@ -117,9 +120,54 @@ input, select, textarea {
 
   cssHash['#tblListFold'].style.backgroundColor = color_surface;
 
+  cssHash['.popupWhiteCells'].style.backgroundColor = color_content_bg;
+
+
+  //cssHash['.colorGradient'].style.backgroundImage = "";
+
+  // top nav bar
+  cssHash['#PagePath'].style.border = "1px solid " + color_border;
+  cssHash['#PagePath'].style.borderRadius = "2px";
+
+
+  cssHash['.UILink'].style.color = color_link;
+  cssHash['.firmwareAvailable'].style.color = color_link;
+  cssHash['.translated'].style.color = color_text;
+
+  // control buttons, for example switch actuator on/off
+  cssHash['.ControlBtnOff'].style.borderRight = "";
+  cssHash['.ControlBtnOff'].style.borderWidth = "1px 1px 1px 1px";
+  cssHash['.ControlBtnOn'].style.borderTop = "";
+  cssHash['.ControlBtnOn'].style.borderRight = "";
+  cssHash['.ControlBtnOn'].style.borderWidth = "1px 1px 1px 1px";
+
+  cssHash['.ControlBtnPushed'].style.borderTop = "";
+  cssHash['.ControlBtnPushed'].style.borderRight = "";
+  cssHash['.ControlBtnPushed'].style.borderWidth = "1px 1px 1px 1px";
+  cssHash['.ControlBtnPushed'].style.backgroundColor = "yellow";
+  cssHash['.ControlBtnPushed'].style.color = "black";
+
+  cssHash['.ControlBtnInfo'].style.backgroundColor = color_content_bg;
+
+  cssHash['.ButtonStatusRooms'].style.height = "auto";
+  cssHash['.ButtonStatusRoomsSelected'].style.height = "auto";
+  cssHash['.ButtonStatusRoomsPic'].style.height = "auto";
+  cssHash['.ButtonStatusRoomsPicSelected'].style.height = "auto";
+
+  cssHash['.PercBtn'].style.borderTop = "";
+  cssHash['.PercBtn'].style.borderRight = "";
+  cssHash['.PercBtn'].style.borderWidth = "1px 1px 1px 1px";
+
+  // some buttons/fields need black text color as the bg color is coded in the tag style
+  ".OkButtonRunning #DeviceConfigDialogTestResult #ChannelConfigDialogTestResult".split(" ").forEach(function (el, i) {
+    if (cssHash[el]) {
+      cssHash[el].style.color = "#000000";
+      cssHash[el].style.backgroundColor = "gray";
+    }
+  })
 
   // update as many buttons as possible
-  "._StdButton .StdButton .StdButtonBig .colorGradient50px .StdButtonInactive .Messages .NavButton .FooterButton .btnRemove .FilterCaption .FilterButton .FilterBtn .DeviceListButton .StdTableBtn".split(" ").forEach(function (el, i) {
+  "._StdButton .StdButton .StdButtonBig .colorGradient .colorGradient50px .StdButtonInactive .Messages .NavButton .FooterButton .btnRemove .FilterCaption .FilterButton .FilterBtn .DeviceListButton .StdTableBtn".split(" ").forEach(function (el, i) {
     if (cssHash[el]) {
       cssHash[el].style.backgroundImage = "";
       cssHash[el].style.backgroundColor = color_surface;
@@ -167,6 +215,8 @@ input, select, textarea {
         if (cssHash[Style].style.backgroundColor === "rgb(240, 240, 240)") { cssHash[Style].style.backgroundColor = color_content_bg; }
         // check for white
         if (cssHash[Style].style.backgroundColor === "white") { cssHash[Style].style.backgroundColor = color_content_bg; }
+        // check for #192c6e
+        if (cssHash[Style].style.backgroundColor === "#192c6e") { cssHash[Style].style.backgroundColor = color_content_bg; }
         // check for rgb(188, 199, 203)
         if (cssHash[Style].style.backgroundColor === "rgb(188, 199, 203)") { cssHash[Style].style.backgroundColor = color_content_bg; }
       }
@@ -176,6 +226,8 @@ input, select, textarea {
               cssHash[Style].style.backgroundImage = "";
               cssHash[Style].style.backgroundColor = "rgba(0,0,0,.5)";
           }
+          if (cssHash[Style].style.backgroundImage === 'url("/ise/img/gradientButton25px.png")') { cssHash[Style].style.backgroundImage = ""; }
+          if (cssHash[Style].style.backgroundImage === 'url("/ise/img/gradientButton50px.png")') { cssHash[Style].style.backgroundImage = ""; }
       }
       // (text) color updates
       if (cssHash[Style].style.color) {
